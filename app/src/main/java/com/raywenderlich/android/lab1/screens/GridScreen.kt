@@ -86,7 +86,18 @@ fun RowItem(rowItems: List<IconResource>) {
 
 @Composable
 fun RowScope.GridIcon(iconResource: IconResource) {
+    val color = if (iconResource.isVisible)
+        colorResource(R.color.colorPrimary)
+    else Color.Transparent
 
+    Icon(
+        imageVector = iconResource.imageVector,
+        tint = color,
+        contentDescription = stringResource(R.string.grid_icon),
+        modifier = Modifier
+            .size(80.dp, 80.dp)
+            .weight(1f)
+    )
 }
 
 data class IconResource(val imageVector: ImageVector, val isVisible: Boolean)
