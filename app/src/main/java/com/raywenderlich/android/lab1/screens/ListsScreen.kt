@@ -69,12 +69,36 @@ fun ListScreen() {
 
 @Composable
 fun MyList() {
-
+    LazyColumn {
+        items(items) {item -> ListItem(item)}
+    }
 }
 
 @Composable
 fun ListItem(BookCategory: BookCategory, modifier: Modifier = Modifier) {
-
+    Column(modifier = Modifier.padding(8.dp)) {
+        Text(
+            text = stringResource(BookCategory.categoryResourceId),
+            fontSize = 22.sp,
+            fontWeight = FontWeight.Bold,
+            color = colorResource(id = R.color.colorPrimary)
+        )
+        Spacer(modifier = modifier.height(8.dp))
+        LazyRow {
+            items(BookCategory.bookImageResources) { items ->
+                BookImage(items)
+            }
+        }
+    }
+}
+@Composable
+fun BookImage(imageResource: Int) {
+    Image(
+        modifier = Modifier.size(170.dp, 200.dp),
+        painter = painterResource(id = imageResource),
+        contentScale = ContentScale.Fit,
+        contentDescription = stringResource(id = R.string.book_covers)
+    )
 }
 
 data class BookCategory(
