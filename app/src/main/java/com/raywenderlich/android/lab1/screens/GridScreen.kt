@@ -50,8 +50,30 @@ fun GridScreen() {
 }
 
 @Composable
-fun GridView(columnCount: Int) {
+fun GridView(columnCount: Int) { val itemSize = items.size
+    val rowCount = ceil(itemSize.toFloat() / columnCount).toInt()
+    val gridItems = mutableListOf<List<IconResource>>()
+    var position = 0
+    for (i in 0 until rowCount) {
+        val rowItem = mutableListOf<IconResource>()
+        for (j in 0 until columnCount) {
+            if (position.inc() <= itemSize) {
+                rowItem.add(IconResource(items[position++], true))
+            }
+        }
+        val itemsToFill = columnCount - rowItem.size
 
+        for (j in 0 until itemsToFill) {
+            rowItem.add(IconResource(Icons.Filled.Delete, false))
+        }
+        gridItems.add(rowItem)
+    }
+
+    LazyColumn(modifier = Modifier.fillMaxSize()) {
+        items(gridItems) { items ->
+            RowItem(items)
+        }
+    }
 }
 
 @Composable
