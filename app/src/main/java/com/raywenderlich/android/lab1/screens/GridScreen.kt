@@ -46,8 +46,35 @@ private val items = listOf(
 @ExperimentalFoundationApi
 @Composable
 fun GridScreen() {
+    LazyVerticalGrid(
+        modifier = Modifier.fillMaxSize(),
+        columns = GridCells.Fixed(3),
+        content = {
+            items(count = items.size) { item ->
+                GridIcon(IconResource(items[item], true))
+            }
+        }
+    )
 
+    BackButtonHandler {
+        FundamentalsRouter.navigateTo(Screen.Navigation)
+    }
 }
+
+@Composable
+fun GridIcon(iconResource: IconResource) {
+    val color = if (iconResource.isVisible)
+        colorResource(R.color.colorPrimary)
+    else Color.Transparent
+
+    Icon(
+        imageVector = iconResource.imageVector,
+        tint = color,
+        contentDescription = stringResource(R.string.grid_icon),
+        modifier = Modifier.size(80.dp, 80.dp)
+    )
+}
+
 
 @Composable
 fun GridView(columnCount: Int) { val itemSize = items.size
