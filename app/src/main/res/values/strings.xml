@@ -1,3 +1,4 @@
+
 <resources>
     <string name="app_name">Lab1</string>
     <string name="massage_button">Закрыть</string>
@@ -14,6 +15,9 @@
     <string name="button_container_box">Контейнер Box</string>
     <string name="button_container_surface">Контейнер Surface</string>
     <string name="button_container_scaffold">Контейнер Scaffold</string>
+    <string name="button_scrolling">Прокрутка</string>
+    <string name="button_list">List</string>
+    <string name="button_grid">Grid</string>
     <string name="title_alertDialog">Внимание</string>
     <string name="alertDialog_about">Это диалоговое окно</string>
     <string name="insert_email">Email</string>
@@ -21,4 +25,13 @@
     <string name="second">Второй</string>
     <string name="third">Третий</string>
     <string name="menu">Меню</string>
+    <string name="advanced_architecture_android">Усовершенствованная архитектура Android</string>
+    <string name="kotlin_aprentice">Изучение Kotlin</string>
+    <string name="kotlin_coroutines">Контуры в Kotlin</string>
+    <string name="android">Android</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="swift">Swift</string>
+    <string name="ios">Ios</string>
+    <string name="book_covers">Обложки книг</string>
+    <string name="grid_icon">Значок сетки</string>
 </resources>

@@ -1,3 +1,4 @@
+
 package com.raywenderlich.android.lab1.router
 
 import androidx.compose.runtime.MutableState
@@ -20,7 +21,9 @@ sealed class Screen {
     object Box : Screen()
     object Surface : Screen()
     object Scaffold : Screen()
-
+    object Scrolling : Screen()
+    object List : Screen()
+    object Grid : Screen()
 }
 
 object FundamentalsRouter {
